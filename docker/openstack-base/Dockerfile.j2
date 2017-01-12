@@ -220,7 +220,10 @@ RUN apt-get install -y --no-install-recommends \
     {% endif %}
 
 ADD openstack-base-archive /openstack-base-source
+RUN ls -la
+RUN ls -la openstack-base-source
 RUN ln -s openstack-base-source/* /requirements \
+    && ls -la /requirements \
     && mkdir -p /var/lib/kolla \
     && curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
     && python get-pip.py \
